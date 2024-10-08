@@ -18,4 +18,4 @@ COPY ./contacts-app-frontend .
 EXPOSE 5000
 EXPOSE 4200 
 
-CMD ["sh", "-c", "node server.js & ng serve"]
+CMD ["sh", "-c", "cd /app/backend && node server.js & cd /app/frontend && ng serve --host 0.0.0.0 --port 4200"]
