@@ -1,21 +1,11 @@
-FROM node:18-alpine
+FROM node:18
 
-WORKDIR /app/backend
-
+WORKDIR /app/
 COPY package*.json ./
 RUN npm install
 
 COPY . .
 
-WORKDIR /app/frontend
-
-COPY contacts-app-frontend/package*.json ./
-RUN npm install -g @angular/cli && npm install
-
-COPY ./contacts-app-frontend .
-
-
 EXPOSE 5000
-EXPOSE 4200 
 
-CMD ["sh", "-c", "cd /app/backend && node server.js & cd /app/frontend && ng serve"]
+CMD ["node", "server.js"]
